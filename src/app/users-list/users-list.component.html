@@ -1,0 +1,15 @@
+<div class="card-deck">
+    <div class="card" *ngFor="let user of userlist">
+      <img src="../../assets/user.png" class="card-img-top" alt="..." >
+      <div class="card-body">
+        <h5 class="card-title">{{user.name}}  - {{user.email}}</h5>
+        <p class="card-text">{{user.description}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- directive -> ng for -> iterate  array in tempate -->

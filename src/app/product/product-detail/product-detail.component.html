@@ -1,0 +1,29 @@
+<p>product-detail works!</p>
+<h1>{{data}}</h1>
+
+<!-- property binding  -->
+<!-- innerHTML,outerHTML,name,hidden,src, disabled -->
+
+<h1 [innerText]="data"></h1>
+
+<!-- <input type="text" name="user" [disabled]="inActive"> -->
+
+<form >
+    <!-- event binding  -->
+    <!-- <input type="text" name="firstName" (input)="getFirstName($event)"> -->
+</form>
+
+<h1>{{firstName}}</h1>
+
+
+<!-- template -> source
+source -> template -->
+
+<!-- two way data binding  -->
+<input type="text" name="email" [(ngModel)]="email">
+
+<h1>{{email}}</h1>
+
+
+
+two way data binding
