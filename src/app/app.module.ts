@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './error/not-found/not-found.component';
 import { ProductModule } from './product/product.module';
 import { FormsModule } from '@angular/forms';
+import { UserService } from './service/user.services';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,10 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ProductModule
+    ProductModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

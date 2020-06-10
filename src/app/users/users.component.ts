@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user.model';
+import { UserService } from '../service/user.services';
 
 
 @Component({
@@ -8,6 +10,25 @@ import { Component } from '@angular/core';
     templateUrl :'./users.component.html',
     styleUrls:['./users.component.css']
 })
-export class UserComponent {
+export class UserComponent implements OnInit{
         user :string = " John Smith";
+        public userlist:User[];
+        
+        constructor(private usersrv:UserService) {
+            // this.userlist = new UserService().userlist;
+        }  
+
+        ngOnInit(): void {
+            this.userlist = this.usersrv.getUser();
+            this.getUserData();
+          }
+
+          getUserData(){
+              this.usersrv.getUserFromAPI().subscribe(res=>{
+                  console.log(res);
+              },err=>{
+                  console.log(err);
+                  
+              })
+          }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user.model';
+import { UserService } from '../service/user.services';
 
 @Component({
   selector: 'app-users-list',
@@ -7,26 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersListComponent implements OnInit {
 
-  constructor() { }
+  public userlist:User[];
 
+  constructor(private usersrv:UserService) {
+    // this.userlist = new UserService().getUser(); // tightly coupled classes
+   }
+  //life cycle hook method
   ngOnInit(): void {
+    this.userlist = this.usersrv.getUser();
   }
 
-  userlist:User[] =[
-    {name:"John Smith",email:"johnsmith@gmail.com",description:"John Smith is Will Smith son"},
-    {name:"Will Smith",email:"willsmith@gmail.com", description:"Will Smith is father John Smith"},
-    {name:"Mike Smith",email:"mikesmith@gmail.com", description:"Mike Smith is Will Smith brother"},
-    {name:"Rohn David",email:"mikesmith@gmail.com", description:"Mike Smith is Will Smith brother"},
-    {name:"Killer David",email:"mikesmith@gmail.com", description:"Rohn David is Will Smith brother"},
-    {name:"Mak David",email:"mikesmith@gmail.com", description:"Rohn David is Will Smith brother"},
-    {name:"SS David",email:"mikesmith@gmail.com", description:"Rohn David is Will Smith brother"},
-    {name:"VV David",email:"mikesmith@gmail.com", description:"Rohn David is Will Smith brother"},
-  ]
+  
 }
 
 
-interface User {
-  name:string;
-  email:string;
-  description:string;
-}
